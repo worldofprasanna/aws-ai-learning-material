@@ -16,7 +16,7 @@ const Index = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello, I am AI Chatbot that uses AWS Bedrock to generate responses. How can I help you today?",
+      text: "Hello, How can I help you today?",
       isUser: false,
       timestamp: new Date(),
     },
@@ -30,14 +30,15 @@ const Index = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const apiGatewayUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL;
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
   // Simulate AI response - replace with actual AI API call
   const generateAIResponse = async (prompt: string): Promise<string> => {
-    const url =
-      "https://qbndugtsch.execute-api.us-east-1.amazonaws.com/dev/chat";
+    const url = apiGatewayUrl;
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -114,7 +115,7 @@ const Index = () => {
             </div>
             <div>
               <h1 className="text-xl font-semibold text-gray-800">
-                AI Assistant
+                AI Chatbot powered by AWS Bedrock
               </h1>
               <p className="text-sm text-gray-600">Always here to help</p>
             </div>
@@ -168,7 +169,7 @@ const Index = () => {
             </Button>
           </div>
           <p className="text-xs text-gray-500 mt-2 text-center">
-            Press Enter to send • This is a demo with simulated responses
+            Press Enter to send • Powered by AWS Bedrock
           </p>
         </div>
       </div>
