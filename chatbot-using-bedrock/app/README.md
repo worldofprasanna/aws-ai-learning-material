@@ -26,6 +26,12 @@ This is the UI for an AI-based Chat Application built with ReactJS and backend i
    # or
    yarn install
    ```
+3. **Update the API Gateway URL**
+   ```
+   1. Open .env.local or .env file
+   2. Update your AWS API Gateway endpoint
+   ```
+
 4. **Run the application:**
    ```bash
    npm run dev

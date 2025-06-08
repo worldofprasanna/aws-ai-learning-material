@@ -30,7 +30,7 @@ const Index = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const apiGatewayUrl = process.env.NEXT_PUBLIC_API_GATEWAY_URL;
+  const apiGatewayUrl = import.meta.env.VITE_API_GATEWAY_URL;
 
   useEffect(() => {
     scrollToBottom();
