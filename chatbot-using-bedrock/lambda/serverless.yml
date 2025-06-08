@@ -1,0 +1,29 @@
+service: bedrock-chatbot
+
+provider:
+  name: aws
+  runtime: python3.12
+  region: us-east-1
+  environment:
+    BEDROCK_MODEL_ID: amazon.titan-text-express-v1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - bedrock:InvokeModel
+          Resource: "*"
+
+functions:
+  chatbot:
+    handler: index.lambda_handler
+    events:
+      - http:
+          path: /chat
+          method: post
+          cors: true
+
+package:
+  include:
+    - index.py
+    - requirements.txt 
