@@ -1,6 +1,6 @@
 # AWS Lambda: Bedrock Model Invocation
 
-This Lambda function is written in Python and is designed to receive incoming requests, invoke an AWS Bedrock model, and return the model's response.
+This Lambda function is written in Python and is designed to receive incoming requests, invoke an AWS Bedrock model, and return the model's response. Frontend for this is available in `/app` folder
 
 ## Features
 
